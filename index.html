@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="stil.css">
+</head>
+<body>
+    <div class="login-container">
+        <h1>Iniciar Sesión</h1>
+        <form onsubmit="return validarLogin()">
+            <div class="input-container">
+                <input type="text" id="usuario" placeholder="Usuario" required>
+            </div>
+            <div class="input-container">
+                <input type="password" id="password" placeholder="Contraseña" required>
+            </div>
+            <button type="submit" class="btn-login">Ingresar</button>
+        </form>
+    </div>
+
+    <script>
+        function validarLogin() {
+            const usuario = document.getElementById('usuario').value;
+            const password = document.getElementById('password').value;
+
+            if (usuario === "Josué" && password === "190924") {
+                window.location.href = "https://www.tupagina.com";
+                return false;
+            } else {
+                alert("Datos incorrectos. Inténtalo de nuevo.");
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>
