@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carta Especial</title>
+    <style>
+        body {
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            position: relative;
+            overflow: hidden;
+            flex-direction: column;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 3rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .heart1 {
+            top: 10px;
+            left: 10px;
+        }
+
+        .heart2 {
+            top: 10px;
+            right: 10px;
+        }
+
+        .heart3 {
+            bottom: 10px;
+            left: 10px;
+        }
+
+        .heart4 {
+            bottom: 10px;
+            right: 10px;
+        }
+
+        @keyframes float {
+            0% { transform: translatey(0); }
+            50% { transform: translatey(-10px); }
+            100% { transform: translatey(0); }
+        }
+
+        /* Estilo del mensaje */
+        .mensaje {
+            border: 2px solid #ff69b4;
+            padding: 20px;
+            max-height: 0;
+            width: 80vw;
+            max-width: 600px;
+            overflow: hidden;
+            background-color: #ffffff;
+            color: #333;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            transition: max-height 0.5s ease;
+            font-size: 1.2rem;
+            opacity: 0;
+            transition: opacity 0.5s ease, max-height 0.5s ease;
+        }
+
+        .mensaje p {
+            margin: 10px 0;
+            line-height: 1.5;
+        }
+
+        /* Botón */
+        .toggle-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .toggle-btn:hover {
+            background-color: #ff1493;
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 600px) {
+            .mensaje p {
+                font-size: 1rem;
+            }
+
+            .toggle-btn {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Corazones animados -->
+    <div class="heart heart1">❤️</div>
+    <div class="heart heart2">❤️</div>
+    <div class="heart heart3">❤️</div>
+    <div class="heart heart4">❤️</div>
+
+    <!-- Mensaje oculto -->
+    <div class="mensaje" id="mensaje">
+        <p>Holis amor, te envío este pequeño mensajito para decirte que sé que no soy la mejor novia que vas a tener, pero trataré de serlo.</p>
+        <p>Siempre voy a estar para ti, y cada vez que más me acerco a ti, más va creciendo lo que siento por ti. Espero que lo nuestro funcione; sé que tal vez no va a ser perfecto, porque ninguna relación lo es, pero lo que tenga que pasar, que sea contigo.</p>
+        <p>Quiero ser alguien en quien puedas confiar y que sea tu apoyo para días buenos y malos. Sé que es muy pronto para decirte esto, ya que llevamos poco tiempo juntos, pero ha sido fantástico cada día, hora y segundo que he pasado junto a ti.</p>
+    </div>
+
+    <!-- Botón para mostrar/ocultar el mensaje -->
+    <button class="toggle-btn" onclick="toggleMensaje()">Mostrar Mensaje</button>
+
+    <script>
+        // Función para mostrar/ocultar el mensaje
+        function toggleMensaje() {
+            var mensaje = document.getElementById("mensaje");
+
+            if (mensaje.style.maxHeight === "0px" || mensaje.style.maxHeight === "") {
+                mensaje.style.maxHeight = "1000px"; // Valor alto para mostrar el contenido
+                mensaje.style.opacity = "1"; // Hacer visible el contenido
+            } else {
+                mensaje.style.maxHeight = "0"; // Colapsa el mensaje
+                mensaje.style.opacity = "0"; // Hacer invisible el contenido
+            }
+        }
+    </script>
+</body>
+</html>
